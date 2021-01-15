@@ -67,6 +67,7 @@ YAGNI: you ain't gonna need it
 
 ![](https://i.imgur.com/IXtlVuq.png)
 * A doctor has many patients and a patient has many doctors
+
 * A doctor has many appointments / appointment belongs to doctor (we already know how to model this)
 * A patient has many appointments / appointment belongs to patient (we already know how to model this)
 * A doctor has many patients through appointments
