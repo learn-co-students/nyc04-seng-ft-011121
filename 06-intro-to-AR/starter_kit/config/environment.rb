@@ -11,7 +11,7 @@ ActiveRecord::Base.establish_connection(
 # enables logging in console whenever ActiveRecord writes SQL for us
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-require_all 'app'
+require_all '../app'
 
 
 # something like this:
