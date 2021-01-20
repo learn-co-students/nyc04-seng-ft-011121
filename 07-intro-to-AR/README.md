@@ -23,7 +23,7 @@ Intro to ActiveRecord
   - create one rake task that will be specific to your app
   - use `rake -T` to check if your task is visible and run it
 - Demonstrate how to work with migration files: `migrate` and `rollback`
-  - watch and code: [ActiveRecord (46 min)](https://youtu.be/gCgDmuhtuuQ)
+  - watch and code: [ActiveRecord (46 min)](https://youtu.be/omlbOfDqZBY)
   - watch and code: [Seeds file and faker gem (10 min)](https://youtu.be/96QdM4rDEiU)
   - define: 
     - `active record`,
