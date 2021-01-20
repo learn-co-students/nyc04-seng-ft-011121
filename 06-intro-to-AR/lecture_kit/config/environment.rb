@@ -8,12 +8,6 @@ ActiveRecord::Base.establish_connection(
   database: "db/development.sqlite"
 )
 
-# enables logging in console whenever ActiveRecord writes SQL for us
-ActiveRecord::Base.logger = Logger.new(STDOUT)
-
-require_all '../app'
-
-
 # something like this:
 # module ActiveRecord
 #   class Base
@@ -21,3 +15,8 @@ require_all '../app'
 #     end
 #   end
 # end
+
+# enables logging in console whenever ActiveRecord writes SQL for us
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+
+require_all 'app'

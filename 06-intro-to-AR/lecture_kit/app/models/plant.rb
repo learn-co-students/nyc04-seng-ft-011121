@@ -1,9 +1,16 @@
-class Plant
+class Plant < ActiveRecord::Base
 
 end
 
 
+
+
+
+
+
+
   # CRUD
+  # Create, Read, Update and Delete
   
   # Create
   # Plant.new - create a Ruby instance
@@ -20,7 +27,7 @@ end
   # Update
   # Plant#save -> take a Ruby instance and update it (if it already has an id)
   # Plant#update -> takes a hash and updates the database
-  # Plant.update -> update alll the things
+  # Plant.update -> update all the records
 
   # Delete
   # Plant#destroy -> delete one thing from the database
