@@ -12,5 +12,5 @@ snake_plant = Plant.create(name: "Snake plant", bought: "20170910", color: "dark
 polka_dot_plant = Plant.create(name: "polka dot plant", bought: "20170915", color: "pink and green", fussy: false)
 cactus_2 = Plant.create(name: "Cactus", bought: "20200517", color: "green", fussy: false)
 
-joel = Person.create(name: "Joel", responsible: false, age: 10_000)
+kami = Person.create(name: "Kami", responsible: false, age: 10_000)
 sylwia = Person.create(name: "Sylwia", responsible: true, age: 30)
