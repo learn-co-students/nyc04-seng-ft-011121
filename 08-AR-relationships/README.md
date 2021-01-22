@@ -94,7 +94,21 @@ end
 - These macros provide **even more** methods, like `plant_instance.parents` and `parent_instance.plants`
   - **Major Key🔑**––since a `plant_parenthood` instance BELONGS TO a `parent` it should have ONE Parent. Therefore the method is `.parent`. A parent HAS MANY `plant_parenthoods`, therefore the method is `.plant_parenthoods` pay attention to what is singular and what is plural.
 
-### Important Methods from ActiveRecord
+## ERD to finish with
+
+```
+Category :name
+    |
+    ^
+  Plant ----< PlantParenthood >---- PlantParent
+   :species      :plant_id            :name
+   :color        :plant_parent_id     :responsible
+   :bought       :affection           :age
+   :fussy
+   :category_id
+```
+
+## Important Methods from ActiveRecord
 
 - `Model.new`
   - creates a new **RUBY** instance in local memory without persisting to the database
