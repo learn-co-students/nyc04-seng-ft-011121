@@ -1,6 +1,6 @@
-class CreatePlantParents < ActiveRecord::Migration[5.2]
+class CreateParents < ActiveRecord::Migration[5.2]
   def change
-    create_table :plant_parents do |t|
+    create_table :parents do |t|
       t.string :name
       t.boolean :responsible
       t.integer :age
