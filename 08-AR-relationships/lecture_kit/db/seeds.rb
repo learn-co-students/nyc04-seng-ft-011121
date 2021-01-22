@@ -2,8 +2,15 @@ Plant.destroy_all
 Plant.reset_pk_sequence
 Parent.destroy_all
 Parent.reset_pk_sequence
+PlantParenthood.destroy_all
+PlantParenthood.reset_pk_sequence
+Category.destroy_all
+Category.reset_pk_sequence
 
-basil = Plant.create(species: "basil the herb", bought: "20200610", color: "green", fussy: true)
+succulent = Category.create(name: "succulent")
+leafy = Category.create(name: "leafy")
+
+basil = Plant.create(species: "basil the herb", bought: "20200610", color: "green", fussy: true, category_id: leafy.id)
 corn_tree = Plant.create(species: "Corn Tree", bought: "20170203", color: "green", fussy: false)
 prayer_plant = Plant.create(species: "Prayer plant", bought: "20190815", color: "purple", fussy: false)
 cactus_1 = Plant.create(species: "Cactus", bought: "20200110", color: "ugly green", fussy: false)

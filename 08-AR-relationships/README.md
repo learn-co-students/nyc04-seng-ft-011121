@@ -12,56 +12,56 @@ Active Record Relationships
 ### Outline
 * Review what we covered so far:
     - What is AR?
-      - 
-      - 
-      - 
+      - translator between sql and ruby -> sql is based on tables and ruby is OO; sql does not know about some datatypes
+      - design pattern
+      - gem
     - What does AR do?
-      - 
+      - translates between sql and ruby
     - When to use SQL and when AR?
-      - 
+      - in this program: always AR; outside: it's up to you
     - What's the difference between a model and a table?
-      - model/class -> 
-      - table -> 
+      - model -> classes; Ruby instances (local memory); models hold behaviors
+      - table -> created via migration; rows and columns; database records (persists in the database) -> we persist them by running AR methods (e.g. .save, .create, .update); hold attributes
     - Can a database have many tables?
       - YES! As many as you **need**
     - What is meant by migration?
       - migration is a blueprint for ActiveRecord to create/change/delete SQL tables
     - Naming conventions in Ruby and AR
-      - model name:  
-      - everything else: 
-    - Project file structure
+      - model name:  singular
+      - everything else: PLURAL
     - What is `rake`?
-      - 
-      - 
-      - 
+      - task manager
+      - your personal toolbox
+      - gem
     - What is `rake console`?
-      - 
-      - 
-      - 
-      - 
+      - SUPERPRY
+      - a pry session that can access our whole app, incl. the database
     - Difference between `.new` and `.create`
-      - `.new` -> 
-      - `.create` -> 
+      - `.new` -> just creates a Ruby instance (which you may SAVE to the databse)
+      - `.create` -> new+save
     - What is CRUD and what are the examples of methods for each letter?
-      - CRUD -> 
-      - create: 
+      - CRUD -> create, read, update, delete
+      - create: .create
       - read: 
-          - 
-          - 
-      - update: 
-      - delete: 
+          - .all
+          - .find(id) / .find_by(attribute: value)
+      - update: .update
+      - delete: .destroy
 
 ### Setting up relationships
 
-This is our domain model:
+This is our domain model we'll start with:
 
 ```
 Plant —————< PlantParenthood >————————— Parent
-:name       :affection (int)         :name
-:color                               :free_time
-:bought(datetime)                    :age
+:species       :affection (int)         :name
+:color                                  :resposible
+:bought(datetime)                       :age
 :fussy(bool)
 ```
+
+This is the erd I drew in the lecture:
+![lecture erd](erd_lecture.png)
 
 - How can we associate a Parent with a Plant and vice-versa?
 
@@ -128,3 +128,12 @@ Category :name
   - `Plant.find_by(name: 'Angel's prayer')` will return the plant with a name of 'Angel's prayer'
 
 [Active Record Docs](http://edgeguides.rubyonrails.org/active_record_migrations.html#using-the-up-down-methods)
+
+
+## RECIPE FOR DEALING WITH A NEW FILE
+- draw your erd and decide on the attributes
+- create migrations 
+- run migrations + check schema
+- create models
+- add association macros
+- create seed data and run it
