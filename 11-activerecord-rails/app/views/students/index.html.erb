@@ -1,0 +1,14 @@
+<h1>All the Students </h1>
+
+<h2>Count: <%= Student.count %></h2>
+
+<ol>
+    <% @students.each do |student_instance| %>
+
+        <li>
+            <p> <%= student_instance.display_nicely %> </p>
+            <p> <%= student_instance.name %> </p>
+        </li>
+
+    <% end %>
+</ol>
