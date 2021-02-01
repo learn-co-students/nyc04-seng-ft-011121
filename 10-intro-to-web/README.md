@@ -1,6 +1,7 @@
 Intro to the Internet
 ===
 * What will you get out of this Mod?
+ - Developers -> Web Developer
 
 ## Introduction to the Internet
 
@@ -11,9 +12,9 @@ Intro to the Internet
   * http://info.cern.ch/hypertext/WWW/TheProject.html
 
 * How is data sent over the internet?
-  * TCP / IP - Internet Protocol
-  * HTTP(s)
-  * HTML
+  * TCP / IP - Transmission Control Protocol / Internet Protocol
+  * HTTP(s) - Hyper Text Transfer Protocol (set of rules that govern the req-resp cycle)
+  * HTML - HyperText Markup Language (Response that gets sent back (structure (MIME))
 
 * How can I find out the IP address of www.google.com using a terminal command? What kind of server makes this lookup possible?
   * DNS (Domain Name System)
@@ -23,6 +24,8 @@ Intro to the Internet
 * What is a server? What is a client?
 
 * What is the request / response cycle?
+    - Client makes a request
+    - Server serves up the response
 
 * With a client and server, which makes the request? Which sends the response?
 
@@ -34,6 +37,12 @@ Intro to the Internet
   * What is a HTTP status code? What do the codes 200, 404, 500, 503, 302, 422 and 418 mean?
     * https://http.cat/
   * Why do we use HTTP verbs? What is the difference between what GET, POST, PUT, PATCH, and DELETE requests do?
+    - GET - We want to READ/GET some information
+    - POST - we want to POST/CREATE some information
+    - PUT/PATCH - we want to UPDATE some information
+    - DELETE - we want to DELETE some information
+
+    - URL: URI (Uniform Resource Identifier)
 
 * What's the difference between static and dynamic websites? What are some of the benefits of a dynamic website?
 
