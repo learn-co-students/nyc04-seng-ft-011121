@@ -7,7 +7,7 @@
 
         <li>
             <p> <%= student_instance.display_nicely %> </p>
-            <p> <%= student_instance.name %> </p>
+            <%= link_to student_instance.name, "/students/#{student_instance.id}" %>
         </li>
 
     <% end %>
