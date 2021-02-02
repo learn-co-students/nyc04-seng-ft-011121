@@ -1,0 +1,16 @@
+<h1>All the Students </h1>
+
+<h2>Count: <%= Student.count %></h2>
+
+<ol>
+    <% @students.each do |student_instance| %>
+
+        <li>
+            <p> <%= student_instance.display_nicely %> </p>
+            <%= link_to student_instance.name, student_path(student_instance) %>
+        </li>
+
+    <% end %>
+</ol>
+
+<%= link_to "New Student", new_student_path %>
