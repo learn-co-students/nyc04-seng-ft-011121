@@ -1,10 +1,20 @@
-<h1> <%= @course.name %> </h1>
+<h1> <%= @course.name() %> </h1>
 
-<p> Seat Limit: <%= @course.seat_limit %> </p>
+<p> Seat Limit: <%= @course.seat_limit() %> </p>
 <%= button_to "Enroll in Course", enroll_course_path(@course), method: "patch" %>
 
 <p> Classroom Number: <%= @course.classroom_number %> </p>
-<p> Status: <%= @course.status %> </p>
+<p> Status: <%= @course.status() %> </p>
 
 <p><%= link_to "Edit #{@course.name}", edit_course_path(@course) %></p>
 <%= button_to "Delete Course", course_path(@course), method: "delete" %>
+
+<h2> List of Students </h2>
+
+<ol>
+    <% @course.students.each do |student_inst| %>
+        <li>
+            <%= link_to student_inst.name, student_path(student_inst) %>
+        </li>
+    <% end %>
+</ol>

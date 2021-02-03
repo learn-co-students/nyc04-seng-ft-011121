@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :grades
   # Write out your routes from the most specific to the general
   
   get "/first", to: "application#first"
