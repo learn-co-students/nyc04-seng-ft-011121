@@ -1,0 +1,12 @@
+<h1>Welcome to First Line (This is where the form is)</h1>
+    <h2>In the new action's form_for, it expects a blank template for that model (Model.new)</h2>
+
+<%= form_for @student do |f| %>
+    
+    <%= f.label :name, "Please put name here" %>
+    <%= f.text_field :name %>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <%= f.submit "Log a new student, granny!" %>
+
+<% end %>

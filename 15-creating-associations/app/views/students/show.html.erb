@@ -1,0 +1,23 @@
+<h1>Show </h1>
+
+<p>Name: <%= @student.name %> </p>
+<p>Age: <%= @student.age %> </p>
+<p> <%= @student.display_nicely %> </p>
+
+<%= link_to "See All Students", students_path %>
+<%= link_to "Edit #{@student.name}", edit_student_path(@student) %>
+
+
+<%= button_to "Delete Student", "/students/#{@student.id}", method: "delete" %>
+<%= button_to "Increase Age", "/students/#{@student.id}/increase", method: "patch" %>
+
+<h2>Report Card</h2>
+<ul>
+    <% @student.grades.each do |grade_inst| %>
+        <li>
+            <%= link_to grade_inst.course.name, course_path(grade_inst.course) %>  
+                - 
+            <%= grade_inst.grade_value %>
+        </li>
+    <% end %>
+</ul>
