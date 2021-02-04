@@ -1,137 +1,91 @@
-Rails Forms
+Rails Many-to-Many
 ===
 
 ## SWBATs
-- Create a new Rails app from scratch
-- Use Rails generators to create models/migrations/controllers/views
-- Explain how routes in Rails interact with the controller
-- Use ActionView helpers like `link_to`, `button_to` and `form_for` to help write HTML
-- Use strong params to allow creating/updating models with mass assignment
+- Write migrations to change a one-to-many to a many-to-many relationship
+- Use ActiveRecord helpers for `has_many` and `has_many_through` to establish relationships
 
-## Outline
-Build full CRUD for one model
-- Create our model
-- Work on CRUD, focus on routes and ActionView helpers
-  - [ ] Create
-    - HTML form vs `form_tag` vs `form_for`
-    - Strong Params
-  - [ ] Read
-    - Review `link_to` and path helpers
-  - [ ] Update
-    - reusable `form_for`
-  - [ ] Delete
-    - `button_to`
+### PSA
 
-### Generators
+**Problem Statement:** We need to update our one-to-many domain model to a many-to-many and let users create new instances on the join table.
 
-Rails generators help make developing Rails apps faster by writing a lot of boilerplate code for you. You should get comfortable knowing which generator to use based on what specific problem you're trying to solve in your application. Here are some commonly used generators:
+### Migrations
 
-- `rails g migration`: Create a migration file, similar to `rake db:create_migration`
-  - ex: `rails g migration create_students name age:integer`
-- `rails g model`: Creates a model with any attributes you specify, and a migration for that model. Model names must be _singular_.
-  - ex: `rails g model Student name age:integer`
-- `rails g controller`: Create a controller and any methods you specify, along with the corresponding routes and views. Controller names should be _plural_.
-  - ex: `rails g controller students index show`
-- `rails g resource`: Create the model, migration, and controller for a given model. Resource name should be _singular_.
-  - ex: `rails g resource Student name age:integer`
+In our previous example, we've been working with a domain where a Student has many Labs and a Lab belongs to a Student. Based on new requirements for our application, we need to update our domain model so a Student can have many Labs and a Lab can also have many Students.
 
-If you ever need to 'undo' a generator and remove all the files it created, you can also run the destroy command (ex. `rails d model student`).
+First, we'll need to update our schema to remove the current relationship between a Lab and a Student. We can generate the migration for it like so:
 
-More on generators: [The Rails Command Line — Ruby on Rails Guides](https://guides.rubyonrails.org/command_line.html#rails-generate)
-
-### Routes
-There are two ways we primarily define routes:
-
-- Using `resources`: Rails will automatically create the RESTful routes for a given model.
-  - ex. `resources :students, only: [:index, show]` will create the following routes: 
-    - `get '/students', to: 'students#index', as: 'students'`
-    - `get '/students/:id', to: 'students#show', as: 'student'`
-
-- Custom routes: You need to specify the HTTP verb + path, controller + method, and optionally the path helper. These are helpful if you need to create routes outside of the seven RESTful routes provided by resources.
-  - ex: `patch /students/:id/toggle, to: 'students#toggle', as: 'toggle_student'`
-
-More on routes: [Rails Routing from the Outside In — Ruby on Rails Guides](https://guides.rubyonrails.org/routing.html)
-
-### Action View helpers
-Action View is one of the core libraries in Rails. It comes with a lot of helper methods that make it easier to write HTML strings. Some examples you'll see frequently:
-
-- `link_to`: generates an `<a>` (anchor) tag
-
-```erb
-<%= link_to 'Students', students_path %>
-# => "<a href="/students">Students</a>"
-```
-
-- `button_to`: generates a `<form>` tag with a submit button
-
-```erb
-<%= button_to 'Delete', @student, method: :delete %>
-# => "<form class="button_to" method="post" action="/students/1">
-#       <input type="hidden" name="_method" value="delete">
-#       <input type="submit" value="Delete">
-#       <input type="hidden" name="authenticity_token" value="...">
-#     </form>"
-```
-
-- `form_for`: helps generate HTML forms, useful for working with models. For an edit form, use an existing instance of a model; for a create form, use a new instance of a model (`@student = Student.new`). Based on what is passed as the first argument to `form_for`, it will generate the correct method and action in the `<form>` tag.
-
-```erb
-<%= form_for @student do |form_builder| %>
-  <%= form_builder.text_field :name %>
-  <%= form_builder.number_field :age %>
-  <%= form_builder.submit %>
-<% end %>
-
-# => "<form class="new_student" id="new_student" action="/students"  method="post">
-#  <input type="hidden" name="authenticity_token" value="...">
-#  <input type="text" name="student[name]" id="student_name">
-#  <input type="number" name="student[age]" id="student_age">
-#  <input type="submit" name="commit" value="Create Student">
-# </form>"
-```
-
-- `form_tag`: helps generate HTML forms; useful when you're not working with a model instance (for example, a search form). More generic than the `form_for` helper.
-
-```erb
-<%= form_tag "/students/search", method: :get do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag "Search" %>
-<% end %>
-
-# => "<form method="get" action="/movies">
-#   <input type="text" name="search" id="search">
-#   <input type="submit" name="commit" value="Search">
-# </form>"
-```
-
-Link To/Button To: [ActionView::Helpers::UrlHelper](https://api.rubyonrails.org/v5.2.3/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to)
-Form For: [form_for (ActionView::Helpers::FormHelper) - APIdock](https://apidock.com/rails/ActionView/Helpers/FormHelper/form_for)
-
-### Strong Params
-
-Rails does not allow mass assignment by default. If you want to use mass assignment to create/update an instance of your model, you have to whitelist specific params them using by calling the permit method on the params hash and passing in the specific keys you want to permit. This protects us from malicious users changing the names on input fields to try and update fields in our models we don't want them to update.
-
-Typically, this is how you will see strong params used in a controller:
+`$ rails g migration RemoveStudentFromLab student_id:integer`
 
 ```rb
-class StudentsController < ApplicationController
-
-  def create
-    # call the student params method to return the whitelisted params
-    student = Student.create(student_params) 
-    
-    redirect_to student_path(student)
+class RemoveStudentFromLab < ActiveRecord::Migration[6.0]
+  def change
+    remove_column :labs, :student_id, :integer
   end
+end
+```
 
-  # private methods can only be called from within the same class
-  private
+Next, we'll need to create a new model to join between our Lab and Student models. Let's call it StudentLab for simplicity. Let's use `rails g resource` to create the model, migration, controller and view folder:
 
-  def student_params
-    # params.require: will throw an error if the key isn't present in the params hash
-    # params.permit: whitelist these keys for mass assignment
-    params.require(:student).permit(:name, :age, :favorite_food)
-  end
+`$ rails g resource StudentLab student:belongs_to lab:belongs_to`
 
+We'll also need to update the associations in our Student and Lab models:
+
+```rb
+# app/models/lab.rb
+class Lab < ApplicationRecord
+  has_many :student_labs
+  has_many :students, through: :student_labs
 end
 
+# app/models/student.rb
+class Student < ApplicationRecord
+  has_many :student_labs
+  has_many :students, through: :student_labs
+end
 ```
+
+### Adding a Create Form
+
+After setting up our new model and establishing the relationships for our domain, our next problem is giving users of our Rails application an interface to create new instances on our join model. Luckily, this is a problem we've already solved in Rails! We just need to follow RESTful convention and create the right routes, controller methods, and corresponding view file.
+
+```rb
+# config/routes.rb
+Rails.application.routes.draw do
+  resources :student_labs, only: [:new, :create]
+  resources :students
+  resources :labs
+end
+
+# app/controllers/student_labs_controller.rb
+class StudentLabsController < ApplicationController
+  def new
+    @student_lab = StudentLab.new
+    @students = Student.all
+    @labs = Lab.all
+  end
+
+  def create
+    student_lab = StudentLab.create(student_lab_params)
+    redirect_to student_path(student_lab.student)
+  end
+
+  private
+  
+  def student_lab_params
+    params.require(:student_lab).permit(:student_id, :lab_id)
+  end
+end
+```
+
+```erb
+<%= form_for @student_lab do |f| %>
+  <%= f.label :student %>
+  <%= f.collection_select :student_id, @students, :id, :name %>
+  <%= f.label :lab %>
+  <%= f.collection_select :lab_id, @labs, :id, :name %>
+  <%= f.submit %>
+<% end %>
+```
+
+Important things to note: make sure to follow naming conventions for models with more than one word in the name! The class names should be camel cased (StudentLab) and the file names should be snake case (student_lab).s
