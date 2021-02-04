@@ -1,0 +1,16 @@
+<h1>Log a New Grade</h1>
+
+<%= form_for @grade do |f| %>
+    <%= f.label :grade_value %>
+    <%= f.collection_select :grade_value, (1..10).to_a, :itself, :itself%>
+    <%= f.label :student_id %>
+    <%= f.collection_select :student_id, @students, :id, :professor_name %>
+    <%= f.label :course_id %>
+    <%= f.collection_select :course_id, @courses, :id, :name %>
+    <%= f.submit %>
+<% end %>
+
+<%# FIRST ARGUMENT - What attribute are we choosing for the instance of our form_for %> 
+<%# SECOND ARGUMENT - What array are we iterating over %> 
+<%# THIRD ARGUMENT - What method are we calling on the single element from our second argument, so that it can be saved to params %> 
+<%# FOURTH ARGUMENT - What method are we calling on the single element from our second argument, so that it can be displayed %> 

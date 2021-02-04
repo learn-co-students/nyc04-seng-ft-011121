@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :grades
+  resources :grades, only: [:index, :new, :create, :destroy]
   # Write out your routes from the most specific to the general
   
+  # Path Prefix (as: "students") of Index -> New form_for
+  # Path Prefix (as: "student") of Show -> Edit form_for
+
   get "/first", to: "application#first"
   patch "/students/:id/increase", to: "students#increase"
 
