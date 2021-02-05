@@ -1,5 +1,15 @@
 <h1>Editing <%= @student.name %></h1>
 
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |message| %>
+            <li>
+                <%= message %>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%= form_for @student do |f| %>
     <%= f.label :name %>   
     <%= f.text_field :name %>

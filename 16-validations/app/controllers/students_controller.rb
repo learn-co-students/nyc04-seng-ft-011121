@@ -9,12 +9,22 @@ class StudentsController < ApplicationController
     end
 
     def new
-        @student = Student.new
+        # if flash[:attributes]
+            # @student = Student.new(flash[:attributes])
+        # else
+            @student = Student.new
+        # end
     end
 
     def create
         @student = Student.create(student_params)
-        redirect_to student_path(@student)
+        if @student.valid?
+            redirect_to student_path(@student)
+        else
+            flash[:errors] = @student.errors.full_messages
+            # flash[:attributes] = @student.attributes
+            redirect_to new_student_path
+        end
     end
 
     def edit
@@ -23,8 +33,12 @@ class StudentsController < ApplicationController
 
     def update
         @student = Student.find(params[:id])
-        @student.update(student_params)
-        redirect_to student_path(@student)
+        if @student.update(student_params)
+            redirect_to student_path(@student)
+        else
+            flash[:errors] = @student.errors.full_messages
+            redirect_to edit_student_path(@student)
+        end
     end
 
     def destroy
