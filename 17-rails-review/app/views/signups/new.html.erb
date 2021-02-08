@@ -1,0 +1,21 @@
+<h1>Create A Sign Up</h1>
+
+
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @signup do |f| %>
+    <%= f.label :time %>
+    <%= f.number_field :time %>
+    <%= f.label :camper_id %>
+    <%= f.collection_select :camper_id, @campers, :id, :name %>
+    <%= f.label :activity_id %>
+    <%= f.collection_select :activity_id, @activities, :id, :name %>
+    <%= f.submit %>
+
+<% end %>

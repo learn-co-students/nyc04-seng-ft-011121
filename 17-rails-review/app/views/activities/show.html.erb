@@ -1,0 +1,18 @@
+<h2> <%= @activity.name %> </h2>
+<p>Difficulty: <%= @activity.difficulty %>  </p>
+
+<% if @activity.signups.count > 0 %>
+
+    <ul>
+        <% @activity.signups.each do |signup| %>
+            <li>
+                <%= signup.camper.name %> is doing this at <%= signup.time %>
+            </li>
+        <% end %>
+    </ul>
+
+<% else %>
+
+    <p>Nobody signed up for this :( </p>
+
+<% end %>

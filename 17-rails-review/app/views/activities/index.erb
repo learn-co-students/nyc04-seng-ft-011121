@@ -1,0 +1,9 @@
+<h2>Here are All the Activities</h2>
+
+<ul>
+    <% @activities.each do |activity| %>
+        <li>
+            <%= link_to activity.name, activity_path(activity) %>
+        </li>
+    <% end %>
+</ul>
