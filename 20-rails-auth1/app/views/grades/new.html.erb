@@ -1,0 +1,13 @@
+<h1>Log a New Grade</h1>
+
+<%= render "/shared/errors" %>
+
+<%= form_for @grade do |f| %>
+    <%= f.label :grade_value %>
+    <%= f.collection_select :grade_value, (1..10).to_a, :itself, :itself%>
+    <%= f.label :student_id %>
+    <%= f.collection_select :student_id, @students, :id, :professor_name %>
+    <%= f.label :course_id %>
+    <%= f.collection_select :course_id, @courses, :id, :name %>
+    <%= f.submit %>
+<% end %>
