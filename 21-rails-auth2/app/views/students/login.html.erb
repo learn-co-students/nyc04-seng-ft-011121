@@ -1,0 +1,11 @@
+<h1>Login Form Goes Here</h1>
+
+<%= render "/shared/errors" %>
+
+<%= form_tag "/handle_login" do %>
+    <%= label_tag :username_here %>
+    <%= text_field_tag :username_here %>
+    <%= label_tag :password_lol, "Enter Your Password:" %>
+    <%= password_field_tag :password_lol %>
+    <%= submit_tag "Login" %>
+<% end %>
