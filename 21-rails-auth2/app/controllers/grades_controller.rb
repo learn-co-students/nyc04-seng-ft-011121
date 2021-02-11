@@ -7,6 +7,7 @@ class GradesController < ApplicationController
     
     def new
         @grade = Grade.new
+        # @courses = Course.all
         @courses = @current_student.courses
     end
 
