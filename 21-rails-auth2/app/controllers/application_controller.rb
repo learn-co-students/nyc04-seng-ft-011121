@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     # STUDENT INSTANCE BASED ON SESSION 
     def current_student
        # this method returns <#Student > or nil
-      @current_student = Student.find_by(id: session[:student_id])
+      @current_student ||= Student.find_by(id: session[:student_id])
     end
 
 
