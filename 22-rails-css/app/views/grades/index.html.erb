@@ -1,0 +1,10 @@
+<h1> <%= @current_student.name %> <h1>
+
+<ul>
+
+    <% @grades.each do |grade| %>
+        <li>
+           <%= grade.course.name %> - <%= grade.grade_value %>
+        </li>
+    <% end %>
+</ul>
