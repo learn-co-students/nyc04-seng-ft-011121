@@ -56,3 +56,94 @@ const articlesArray = [
         likes: 9000
     }
 ]
+
+/******* READ *******/
+
+const heading = document.querySelector('h1#news-co')
+const allCards = document.querySelectorAll('.card')
+
+
+
+
+/******* UPDATE *******/
+// try to find ele by alt text
+
+// 1. FIND the element you want to update
+// const cards = document.querySelectorAll('.card')
+// const firstCard = cards[0]
+
+// const firstCard = document.querySelector('[data-id="1"]')
+// const firstCardImg = firstCard.querySelector('img')
+
+// 2. update something about it
+// firstCardImg.src = "images/raffy.jpg"
+
+
+const schoolPtag = document.querySelector('p.flatiron')
+schoolPtag.style.color = "blue"
+
+
+/******* DELETE *******/
+// 1. FIND the element you want to remove
+const adDiv = document.querySelector('.card.ad')
+// console.log(adDiv)
+
+// 2. actually remove it
+adDiv.remove()
+
+
+/******* CREATE *******/
+// < div class="card" data - id="1" >
+//             <div class="img-container">
+//                 <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
+//                     alt="Raffy" />
+//                 <div class="article-title-container">
+//                     <h4>Raffy is cute</h4>
+//                 </div>
+//             </div>
+//             <div class="content">
+//                 <p class='author'>Author: Rafferty</p>
+//                 <div class="scroll">
+//                     <p class='description'>Raffy is a fluffy boy! Halvah donut sugar plum chocolate bar icing apple
+//             pie dragée. Gingerbread dragée sugar plum. Powder pie toffee tootsie roll danish candy
+//             wafer. Sesame snaps fruitcake tootsie roll jelly chupa chups macaroon gummies sweet roll.
+//             Carrot cake biscuit oat cake cotton candy sweet jelly-o topping. Cupcake pie marshmallow
+//                         marzipan sesame snaps biscuit apple pie dragée.</p>
+//                 </div>
+//                 <p class="react-count">5 likes</p>
+//                 <button class="like-button">♥️ Like</button>
+//             </div>
+//         </div >
+
+
+
+
+articlesArray.forEach(function (articleObject) {
+    const div = document.createElement('div')
+    // div.className = "card"
+    div.classList.add('card')
+    div.dataset.id = articleObject.id
+
+    div.innerHTML = ` <div class="img-container">
+                <img src="${articleObject.image}"
+                alt="${articleObject.title}" />
+                <div class="article-title-container">
+                    <h4>${articleObject.title}</h4>
+                </div>
+                </div>
+                <div class="content">
+                    <p class='author'>Author: ${articleObject.author}</p>
+                    <div class="scroll">
+                    <p class='description'>${articleObject.description}</p>
+                </div>
+                <p class="react-count">${articleObject.likes} likes</p>
+                <button class="like-button">♥️ Like</button>
+            </div>`
+
+
+    // Find where we want to add it on the web page
+    const collectionDiv = document.querySelector('div#collection')
+    collectionDiv.append(div)
+    // console.log(collectionElement)
+})
+
