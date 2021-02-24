@@ -344,6 +344,8 @@ form {
     margin: 1em 3rem 4rem 2em;
     border: double;
     border-width: 1rem;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 form input, form textarea {
