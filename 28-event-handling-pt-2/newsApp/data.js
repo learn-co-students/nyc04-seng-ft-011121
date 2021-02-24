@@ -5,7 +5,7 @@ const articlesArray = [
         author: "A.J. Perlis",
         description: "My dog is rude because he kicks down doors when closed and chooses when to listen",
         image: "images/IMG_4598.jpg",
-        likes: "1"
+        likes: 1
     },
     {
         id: 2,

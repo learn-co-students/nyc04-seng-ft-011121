@@ -47,6 +47,20 @@ function renderOneCard(articleObject) {
 
     const collectionDiv = document.querySelector('div#collection')
     collectionDiv.append(div)
+
+    const likeBtn = div.querySelector('button.like-button')
+    likeBtn.addEventListener('click', function (event) {
+        const pTag = div.querySelector('p.react-count')
+        // const currLikes = parseInt(pTag)
+        articleObject.likes += 1
+        pTag.textContent = `${articleObject.likes} likes`
+
+    })
+
+    const deleteBtn = div.querySelector('button.delete-button')
+    deleteBtn.addEventListener('click', function () {
+        div.remove()
+    })
 }
 
 
@@ -105,50 +119,19 @@ form.addEventListener('submit', function (event) {
 })
 
 
-
-
-const collectionDiv = document.querySelector('div#collection')
-
-collectionDiv.addEventListener('click', function (event) {
-
-    if (event.target.className === 'like-button') {
-        const cardDiv = event.target.closest('div.card')
-        const pTag = cardDiv.querySelector('p.react-count')
-        const currLikes = parseInt(pTag.textContent)
-        pTag.textContent = `${currLikes + 1} likes`
-    }
-    else if (event.target.matches('.delete-button')) {
-        console.log('delete clicked')
-        const cardDiv = event.target.closest('div.card')
-        cardDiv.remove()
-    }
-
-})
-
-
-
-
-
-
-
-
-
 /******* APP INIT ********/
 removeAd()
 renderAllCards()
 updateSchoolStyling()
 
 
-
-
-// document.querySelector('button.delete-button').addEventListener('click', function(event){
-//     console.log('DELETE BTN CLICKED - ', event.target)
+// const allLikeBtns = document.querySelectorAll('button.like-button')
+// allLikeBtns.forEach(function(btn){
+//     btn.addEventListener('click', function(event){
+//         console.log('clicked! - ', event.target)
+//     })
 // })
 
-// document.querySelector('div.card').addEventListener('click', function(event) {
-//     console.log('CARD CLICKED - ', event.target)
-// })
 
-// document.body.addEventListener('click', function(event) {
-//     console.log('BODY CLICKED - ', event)
-// })
+
+
