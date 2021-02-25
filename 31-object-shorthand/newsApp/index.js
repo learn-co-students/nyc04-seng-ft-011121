@@ -70,24 +70,29 @@ form.addEventListener('submit', function (event) {
     // const descriptionInput = event.target.description.value
     // const urlInput = event.target.url.value
 
-    const firstInput = event.target[0].value
-    const secondInput = event.target[1].value
-    const thirdInput = event.target[2].value
-    const fourthInput = event.target[3].value
+    const title = event.target[0].value
+    const author = event.target[1].value
+    const description = event.target[2].value
+    const image = event.target[3].value
     const lastId = articlesArray[articlesArray.length - 1].id
-    const newId = lastId + 1
+    const id = lastId + 1
 
-    // How to create this object using object shorthand??
-    const articleObj = {
-        id: newId,
-        title: firstInput,
-        author: secondInput,
-        description: thirdInput,
-        image: fourthInput,
-        likes: 0
-    }
+    // const articleObj = {
+    //     id: newId,
+    //     title: firstInput,
+    //     author: secondInput,
+    //     description: thirdInput,
+    //     image: fourthInput,
+    //     likes: 0
+    // }
 
-    renderOneCard(articleObj)
+    // How to create the above object using object shorthand syntax??
+    // const articleObj = { title, author, description, image, id, likes: 0 } // object shorthand notation
+
+    console.log(articleObj)
+
+
+    renderOneCard({ title, author, description, image, id, likes: 0 })
     event.target.reset()
 })
 
