@@ -124,19 +124,29 @@ collectionDiv.addEventListener('click', function (event) {
         const cardDiv = event.target.closest('div.card')
         const pTag = cardDiv.querySelector('p.react-count')
         const currLikes = parseInt(pTag.textContent)
-        pTag.textContent = `${currLikes + 1} likes` // optimistic rendering
+        // pTag.textContent = `${currLikes + 1} likes` // optimistic rendering
         const newLikesObj = { likes: currLikes + 1 }
 
-        fetch(`http://localhost:3000/articles/${cardDiv.dataset.id}`, {
+        fetch(`http://localhost:3000/articlesssss/${cardDiv.dataset.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(newLikesObj)
         })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.log(error))
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                }
+
+                throw Error(`The status text is: ${response.statusText}`)
+            })
+            .then(data => {
+                pTag.textContent = `${data.likes} likes`
+            })
+            .catch(error => {
+                alert(error)
+            })
 
     }
     else if (event.target.matches('.delete-button')) {
