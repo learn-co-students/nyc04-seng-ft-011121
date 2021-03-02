@@ -65,13 +65,12 @@ function shareContactInfo(employee) {
     const cell = employee.phones.cell
     const work = employee.phones.work
 
-    return `${name} is an ${position} who can be 
-    reached by cell at ${cell} or by landline at ${work}`
+    return `${name} is an ${position} who can be reached by cell at ${cell} or by landline at ${work}`
 }
 
 const e1 = {
     name: "Michelle",
-    job: "Instructor",
+    position: "Instructor",
     phones: {
         cell: "555-987-6543",
         work: "555-345-6789"
@@ -79,10 +78,10 @@ const e1 = {
 }
 const e2 = {
     name: "Greg",
-    position: "Instructor",
+    job: "Instructor",
     phones: {
         cell: "555-987-3455",
-        work: "555-345-6667"
+        work: "555-345-6677"
     }
 }
 
