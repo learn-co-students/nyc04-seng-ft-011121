@@ -1,0 +1,100 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Why Buford is Rude",
+      "author": "A.J. Perlis",
+      "description": "My dog is rude because he kicks down doors when closed and chooses when to listen",
+      "image": "images/IMG_4598.jpg",
+      "likes": 77
+    },
+    {
+      "id": 2,
+      "title": "ATLA better than LOK",
+      "author": "Ob V. Usly",
+      "description": "There are so many reasons, who could even count?",
+      "image": "https://i.pinimg.com/originals/9f/e2/54/9fe2547d6ddcbcb0bc2baaaab0855fb3.jpg",
+      "likes": 600000006
+    },
+    {
+      "id": 3,
+      "title": "Local Boy Unmutes Himself",
+      "author": "Tim Wit",
+      "description": "In a stunning turn of events, a very competent programmer remembers to press the 'unmute' button before speaking on Zoom.",
+      "image": "https://images.idgesg.net/images/article/2020/07/zoom-for-home-100852180-large.jpg",
+      "likes": 13
+    },
+    {
+      "id": 4,
+      "title": "Fluff Daddy",
+      "author": "F. Diddy",
+      "description": "Breaking: Puff Daddy changes his name yet again, this time to help promote his line of extremely fluffy coats",
+      "image": "https://i.redd.it/l0uj355oxv341.jpg",
+      "likes": 53
+    },
+    {
+      "id": 5,
+      "title": "Earth Spinning",
+      "author": "Bark Twain",
+      "description": "Recent studies have led scientists to believe that the Earth is spinning round as we speak.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Rotating_earth_%28large%29.gif",
+      "likes": 56
+    },
+    {
+      "id": 6,
+      "title": "Raffy so cute",
+      "author": "Mr. Rafferty",
+      "description": "Raffy continues to be a fluffy boy.",
+      "image": "images/raffy.jpg",
+      "likes": 39
+    },
+    {
+      "id": 7,
+      "title": "Rare screenshot caputred!",
+      "author": "Raffy",
+      "description": "BREAKING: Max successfully captured the precise moment when the console log appeared in the console with his extrodinary photography skills.",
+      "image": "images/screenshot.png",
+      "likes": 25
+    },
+    {
+      "id": 8,
+      "title": "I'm not fat, I'm Fluffy",
+      "author": "Gabriel Iglesias",
+      "description": "...and Covid makes me even fluffier",
+      "image": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ftheawkwardyeti.com%2Fwp-content%2Fuploads%2F2017%2F07%2F063017_MaintenanceRequired-1024x841.png&f=1&nofb=1",
+      "likes": 9001
+    },
+    {
+      "title": "Rhinos are cool",
+      "author": "Michelle",
+      "description": "They continue to amaze scientists!",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Diceros_bicornis.jpg/1200px-Diceros_bicornis.jpg",
+      "likes": 7,
+      "id": 12
+    },
+    {
+      "title": "Another Milestone Reached",
+      "author": "Raffy",
+      "description": "Chicken Rocks cohort spreads more positivity and knowledge as they complete the toy tale lab with sweeping success.",
+      "image": "https://lumiere-a.akamaihd.net/v1/images/open-uri20150422-20810-y1ys73_7dd5c0b7.jpeg",
+      "likes": 778,
+      "id": 13
+    },
+    {
+      "title": "Chicken Rocks Projects",
+      "author": "Raffy",
+      "description": "Phase 3 project week is well under way for the Chicken Rocks cohort. In recent news, all groups submitted project pitches after brainstorming with their partners. Stay tuned til Friday to see the results!",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhevL-br9_KhpEEx59r2SpsBo5R8IzjAwLdg&usqp=CAU",
+      "likes": 78,
+      "id": 14
+    },
+    {
+      "title": "Zzzzebra",
+      "author": "Raffy",
+      "description": "A zebra awoke from its slumber and was curious about a nearby apparatus that we know of as the 'camera'.",
+      "image": "https://images.theconversation.com/files/285143/original/file-20190722-11355-1peled7.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
+      "likes": 131,
+      "id": 15
+    }
+  ]
+}
