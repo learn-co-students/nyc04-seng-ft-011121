@@ -2,12 +2,12 @@
 
 ## Students Will Be Able To (SWBATs)
 
-- [ ] Understand how `create-react-app` works and what it offers a developer
-- [ ] Organize code into files and use the **import-export** syntax to pass data
+- [x] Understand how `create-react-app` works and what it offers a developer
+- [x] Organize code into files and use the **import-export** syntax to pass data
       between components
-- [ ] Explain what a React **Component** actually is in code
-- [ ] Use **JSX** to build custom components and render them in the browser
-- [ ] Use **props** to make components more dynamic and reusable
+- [x] Explain what a React **Component** actually is in code
+- [x] Use **JSX** to build custom components and render them in the browser
+- [x] Use **props** to make components more dynamic and reusable
 
 ## Outline
 
