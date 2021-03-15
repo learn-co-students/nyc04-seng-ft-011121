@@ -3,11 +3,11 @@
 ## Students Will Be Able To (SWBATs)
 
 - [ ] Understand how `create-react-app` works and what it offers a developer
-- [ ] Organize code into files and use the import-export syntax to pass data
+- [ ] Organize code into files and use the **import-export** syntax to pass data
       between components
-- [ ] Explain what a React Component actually is in code
-- [ ] Use JSX to build custom components and render them in the browser
-- [ ] Use props to make components more dynamic and reusable
+- [ ] Explain what a React **Component** actually is in code
+- [ ] Use **JSX** to build custom components and render them in the browser
+- [ ] Use **props** to make components more dynamic and reusable
 
 ## Outline
 
@@ -19,7 +19,7 @@
 - [ ] Use props to render dynamic data
 - [ ] Demonstrate debugging techniques (`console.log(props)`, React DevTools)
 - [ ] Render a list of components
-  - **Breakout Exercise**: Practice creating a [list of components](https://codesandbox.io/s/components-props-jsx-exercise-b5bx1)
+  - **Breakout Exercise**: Practice creating a [list of components](https://codesandbox.io/s/components-props-jsx-exercise-011121-qylbs?file=/src/ColorList.js)
 
 ### `create-react-app`
 
