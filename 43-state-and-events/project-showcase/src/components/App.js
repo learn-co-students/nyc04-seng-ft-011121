@@ -9,7 +9,7 @@ import projects from "../data/projects";
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Header name="Flatiron Projects" />
       <ProjectForm />
       <ProjectList projects={projects} />
     </div>

@@ -13,7 +13,7 @@ const projects = [
     about:
       "The app takes you (the Casting Director) through a series of questions to determine the Models you need for your next Project.",
     phase: 4,
-    link: "https://bookher.netlify.app/new_project",
+    link: null,
     image: "https://i.imgur.com/INs84Uk.png",
   },
   {

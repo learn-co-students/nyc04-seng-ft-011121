@@ -1,10 +1,10 @@
 import React from "react";
 import ProjectItem from "./ProjectItem";
 
-function ProjectList(props) {
+function ProjectList({ projects }) {
   // map over the array of project objects => return an array of ProjectItem components
   // [{},{},{},{}] => [<ProjectItem />, <ProjectItem />, <ProjectItem />, <ProjectItem />]
-  const projectItems = props.projects.map((project) => {
+  const projectItems = projects.map((project) => {
     return <ProjectItem key={project.id} project={project} />;
   });
 
