@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import ProjectItem from "./ProjectItem";
 
 function ProjectList({ projects }) {
+  const [search, setSearch] = useState("");
+  // const [filteredProjects, setFilteredProjects] = useState([])
+  // console.log(search);
   // map over the array of project objects => return an array of ProjectItem components
-  // [{},{},{},{}] => [<ProjectItem />, <ProjectItem />, <ProjectItem />, <ProjectItem />]
-  const projectItems = projects.map((project) => {
+
+  // Assembly Line
+  // [{},{},{},{}] => [{}, {}]
+  const filteredProjects = projects.filter((project) => {
+    return project.name.toLowerCase().includes(search.toLowerCase());
+  });
+  // [{},{}] => [<ProjectItem />, <ProjectItem />]
+  const projectItems = filteredProjects.map((project) => {
     return <ProjectItem key={project.id} project={project} />;
   });
+
+  function handleSearchChange(event) {
+    setSearch(event.target.value);
+  }
 
   return (
     <section>
@@ -20,7 +33,11 @@ function ProjectList({ projects }) {
         <button>Phase 2</button>
         <button>Phase 1</button>
       </div>
-      <input type="text" placeholder="Search..." />
+      <input
+        type="text"
+        placeholder="Search..."
+        onChange={handleSearchChange}
+      />
 
       <ul className="cards">{projectItems}</ul>
     </section>
