@@ -63,6 +63,30 @@
       "phase": 4,
       "link": "https://gamesrx.netlify.app",
       "image": "https://i.imgur.com/Japzh6v.png"
+    },
+    {
+      "name": "project name",
+      "about": "about",
+      "phase": 1,
+      "link": "homepage",
+      "image": "screenshot!",
+      "id": 16
+    },
+    {
+      "name": "project name",
+      "about": "about",
+      "phase": 1,
+      "link": "homepage",
+      "image": "screenshot!",
+      "id": 17
+    },
+    {
+      "name": "a new project",
+      "about": "pls",
+      "phase": 1,
+      "link": "work",
+      "image": "dammit",
+      "id": 18
     }
   ]
 }
