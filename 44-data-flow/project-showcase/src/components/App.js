@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import ProjectForm from "./ProjectForm";
 import ProjectList from "./ProjectList";
 
 // TODO: replace this with a fetch request (eventually)
-import projects from "../data/projects";
+import projectData from "../data/projects";
 
 function App() {
+  const [projects, setProjects] = useState(projectData);
+
   return (
     <div className="App">
       <Header name="Flatiron Projects" />

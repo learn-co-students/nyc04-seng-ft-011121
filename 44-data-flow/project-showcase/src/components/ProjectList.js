@@ -3,9 +3,6 @@ import ProjectItem from "./ProjectItem";
 
 function ProjectList({ projects }) {
   const [search, setSearch] = useState("");
-  // const [filteredProjects, setFilteredProjects] = useState([])
-  // console.log(search);
-  // map over the array of project objects => return an array of ProjectItem components
 
   // Assembly Line
   // [{},{},{},{}] => [{}, {}]

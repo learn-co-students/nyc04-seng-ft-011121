@@ -21,7 +21,6 @@ function ProjectItem({ project }) {
         <h4>{name}</h4>
         <p>{about}</p>
 
-        {/* if/else statement: if there is a link, return a p tag; otherwise, don't display */}
         {link ? (
           <p>
             <a href={link}>Link</a>
