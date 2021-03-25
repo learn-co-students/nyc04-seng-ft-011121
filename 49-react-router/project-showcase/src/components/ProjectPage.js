@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 function ProjectDetail() {
   const [claps, setClaps] = useState(0);
   const [project, setProject] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const id = 1;
+  const params = useParams();
+  console.log(params);
+
+  const id = params.id;
 
   useEffect(() => {
     fetch(`http://localhost:3000/projects/${id}`)
@@ -71,6 +75,7 @@ function ProjectDetail() {
           ))}
         </div>
       </div>
+      <Link to={`/projects/${parseInt(id) + 1}`}>Next</Link>
     </section>
   );
 }

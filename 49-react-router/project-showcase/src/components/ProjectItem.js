@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function ProjectItem({ project }) {
   const [claps, setClaps] = useState(0);
 
-  const { image, name, about, phase } = project;
+  const { id, image, name, about, phase } = project;
 
   function handleClapClick() {
     setClaps(claps + 1);
   }
+
+  const link = `/projects/${id}`;
 
   return (
     <li className="card">
@@ -22,7 +25,7 @@ function ProjectItem({ project }) {
         <h4>{name}</h4>
         <p>{about}</p>
         <p>
-          <em>Add a link to the detail page here</em>
+          <Link to={link}>Show Details</Link>
         </p>
       </div>
 
