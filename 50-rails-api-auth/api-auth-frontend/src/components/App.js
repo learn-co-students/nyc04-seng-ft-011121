@@ -10,19 +10,26 @@ function App() {
 
   // auto-login feature!
   useEffect(() => {
-    // TODO: check if the user has already logged in
-    // GET /me
-    fetch("http://localhost:3000/me")
-      .then((r) => r.json())
-      .then((user) => {
-        // save that user in state
-        setUser(user);
-      });
+    // check if the user has already logged in
+    const token = localStorage.getItem("token");
+    if (token) {
+      // Authorization: Bearer token
+      fetch(`${process.env.REACT_APP_RAILS_API_URL}/me`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((r) => r.json())
+        .then((user) => {
+          // save that user in state
+          setUser(user);
+        });
+    }
   }, []);
 
   return (
     <>
-      <NavBar user={user} />
+      <NavBar user={user} setUser={setUser} />
       <main>
         {user ? (
           <Switch>
@@ -36,7 +43,7 @@ function App() {
         ) : (
           <Switch>
             <Route path="/signup">
-              <SignUp />
+              <SignUp setUser={setUser} />
             </Route>
             <Route path="/login">
               <Login setUser={setUser} />

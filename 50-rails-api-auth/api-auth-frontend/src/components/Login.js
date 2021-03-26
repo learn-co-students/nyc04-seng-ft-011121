@@ -22,7 +22,10 @@ function Login({ setUser }) {
       body: JSON.stringify(formData),
     })
       .then((r) => r.json())
-      .then((user) => {
+      .then((data) => {
+        const { user, token } = data;
+        // big caveat here! localstorage is vulnerable to XSS
+        localStorage.setItem("token", token);
         setUser(user);
         history.push("/");
       });
