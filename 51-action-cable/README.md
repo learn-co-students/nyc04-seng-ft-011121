@@ -260,6 +260,7 @@ function ActionCableProvider({ url, children }) {
     // disconnect if component unmounts
     return function cleanup() {
       cable.disconnect();
+      setCable(null);
     };
   }, [url]);
 

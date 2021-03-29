@@ -11,6 +11,8 @@ class TweetsController < ApplicationController
   def create
     tweet = @current_user.tweets.create(message: params[:message])
     if tweet.valid?
+      # broadcast the new tweet to any subscribers of our Action Cable channel
+      FeedChannel.broadcast_to(@current_user, TweetSerializer.new(tweet))
       render json: tweet
     else
       render json: tweet.errors.messages, status: 422
