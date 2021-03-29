@@ -97,17 +97,17 @@ some wrappers for that library to make it easier to work with React. We're going
 to work directly with the Action Cable library to get a better sense of its
 internals and give us more flexibility in using it.
 
-To get started, let's install the `actioncable` package:
+To get started, let's install the `@rails/actioncable` package:
 
 ```sh
-npm install actioncable
+npm install @rails/actioncable
 ```
 
 First we'll need to connect to Action Cable on our server:
 
 ```js
 // cable.js
-import { createConsumer } from "actioncable";
+import { createConsumer } from "@rails/actioncable";
 
 const cable = createConsumer("ws://localhost:3000/cable");
 
@@ -243,7 +243,7 @@ let's use the `useEffect` hook for that:
 ```js
 // context/actioncable.js
 import React, { createContext, useEffect, useState } from "react";
-import { createConsumer } from "actioncable";
+import { createConsumer } from "@rails/actioncable";
 
 // create a shared context
 export const ActionCableContext = createContext();
