@@ -10,8 +10,6 @@ function App() {
   const [budget, setBudget] = useState(50);
   const plates = sushis.filter((sushi) => sushi.isEaten);
 
-  console.log(plates);
-
   useEffect(() => {
     fetch(API)
       .then((r) => r.json())
@@ -30,21 +28,15 @@ function App() {
       // set isEaten = true on that one sushi
       const updatedSushis = sushis.map((sushi) => {
         if (sushi.id === eatenSushi.id) {
-          // replace the sushi with a new object, update the property
           sushi.isEaten = true;
-          return sushi;
-        } else {
-          return sushi;
         }
+        return sushi;
       });
       setSushis(updatedSushis);
       setBudget((budget) => budget - eatenSushi.price);
     } else {
       alert("nope.");
     }
-
-    // const newPlates = [...plates, 1];
-    // setPlates(newPlates);
   }
 
   function handleAddToBudget(newAmount) {

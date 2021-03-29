@@ -28,9 +28,46 @@
 
 ### Frontend Routes
 
+"http://localhost:3001"
+
+- "/home": Home
+- "/new": ProjectForm
+- "/projects": ProjectList
+- "/projects/:id": ProjectDetail
+
+
+### Backend
+
+"http://localhost:3000"
+GET "/projects"
+
 ### Benefits
 
+- faster! no refresh, no reload for each page
+- no routes (all on one page)
+- very fluid (user exp is more seamless)
+- less enforced structure compared to MVC
+  - React: Components
+
+
 ### Challenges
+
+- large scale page formatting/changes are harder (conditional rendering based on state)
+- can't easily retrieve where you are on the site
+- harder to navigate for the user
+  - share a link to a certain part of your app
+  - go back to the previous page
+  - bookmark a page
+
+
+
+
+
+
+
+
+
+
 
 ### Static vs Dynamic Routing
 

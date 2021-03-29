@@ -3,12 +3,18 @@ import Header from "./Header";
 import ProjectForm from "./ProjectForm";
 import ProjectList from "./ProjectList";
 
-// TODO: replace this with a fetch request (eventually)
-// import projectData from "../data/projects";
-
 function App() {
   const [projects, setProjects] = useState([]); // {}, null, empty array
   const [isDarkMode, setIsDarkMode] = useState(true);
+
+  // TODO: replace this with useEffect
+  function handleFetchProjects() {
+    fetch("http://localhost:4000/projects")
+      .then((r) => r.json())
+      .then((projectArray) => {
+        setProjects(projectArray);
+      });
+  }
 
   function handleToggleDarkMode() {
     setIsDarkMode(!isDarkMode);
@@ -21,17 +27,6 @@ function App() {
     // this won't work :(
     // projects.push(newProject)
     // setProjects(projects)
-  }
-
-  // { image: "http://" }
-  // image
-  function handleFetchProjects() {
-    // TODO: GET /projects
-    fetch("http://localhost:4000/projects")
-      .then((r) => r.json())
-      .then((projectArray) => {
-        setProjects(projectArray);
-      });
   }
 
   return (
